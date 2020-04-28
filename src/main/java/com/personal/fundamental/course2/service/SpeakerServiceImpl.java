@@ -1,10 +1,10 @@
 package com.personal.fundamental.course2.service;
 
 import com.personal.fundamental.course2.Speaker;
-import com.personal.fundamental.course2.repository.HibernateSpeakerRepositoryImpl;
 import com.personal.fundamental.course2.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 public class SpeakerServiceImpl implements SpeakerService {
@@ -14,6 +14,10 @@ public class SpeakerServiceImpl implements SpeakerService {
 
     public SpeakerServiceImpl(){
         System.out.println("Speak service Impl no args constructor");
+    }
+    @PostConstruct
+    private void init(){
+        System.out.println("A simple post contruct");
     }
 
     @Override
