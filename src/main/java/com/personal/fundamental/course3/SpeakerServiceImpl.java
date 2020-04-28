@@ -1,12 +1,12 @@
-package com.personal.fundamental.course2.service;
+package com.personal.fundamental.course3;
 
-import com.personal.fundamental.course2.Speaker;
-import com.personal.fundamental.course2.repository.HibernateSpeakerRepositoryImpl;
-import com.personal.fundamental.course2.repository.SpeakerRepository;
+import com.personal.fundamental.course3.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("speakerService")
 public class SpeakerServiceImpl implements SpeakerService {
 
 
@@ -20,13 +20,12 @@ public class SpeakerServiceImpl implements SpeakerService {
     public List<Speaker> findAll() {
         return repository.findAll();
     }
-
+    @Autowired
     public SpeakerServiceImpl(SpeakerRepository repository) {
         System.out.println("Speak service Impl repository constructor");
         this.repository = repository;
     }
 
-    @Autowired
     public void setRepository(SpeakerRepository repository) {
         System.out.println("Speak service Impl setter");
         this.repository = repository;
